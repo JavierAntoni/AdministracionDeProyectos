@@ -66,6 +66,7 @@
 
 
 
+
     </pre>
     <div class="container">
         <div class="row">
@@ -78,7 +79,7 @@
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Correo Electronico" name="email" type="email" autofocus="">
+                                    <input class="form-control" placeholder="Correo Electronico" name="email" type="email" autofocus=""/>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Contraseña" name="password" type="password" value="">
