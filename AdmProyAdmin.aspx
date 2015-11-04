@@ -12,6 +12,7 @@
     <link href="css/half-slider.css" rel="stylesheet">
 </head>
 <body>
+    <form id="form1" runat="server">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         
@@ -77,31 +78,30 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close"></span>Content</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close"></span>Proyectos</a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse in">
+                                <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <table class="table">
                                             <tr>
                                                 <td>
-                                                    <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="#">Proyecto 1</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="#">Proyecto 2</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">Newsletters</a>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="#">Proyecto 3</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
-                                                    <span class="badge">42</span>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="#">Proyecto 4</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -222,8 +222,16 @@
 
         <div class="col-sm-9 col-md-9">
             <div class="well">
-                <h1>Accordion Menu With Icon</h1>
-                Admin Dashboard Accordion Menu
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idProyecto" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:BoundField DataField="idProyecto" HeaderText="idProyecto" InsertVisible="False" ReadOnly="True" SortExpression="idProyecto" />
+                        <asp:BoundField DataField="nombreProyecto" HeaderText="nombreProyecto" SortExpression="nombreProyecto" />
+                        <asp:BoundField DataField="fechaInicio" HeaderText="fechaInicio" SortExpression="fechaInicio" />
+                        <asp:BoundField DataField="fechaFin" HeaderText="fechaFin" SortExpression="fechaFin" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Proyecto]"></asp:SqlDataSource>
+                
             </div>
         </div>
     </div>
@@ -238,16 +246,11 @@
         </footer>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <p> Esto es una prueba de github</p>
-        </div>
-    </div>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    </form>
 </body>
 </html>
